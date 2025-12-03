@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function demo(){
+            const val1=parseInt(document.getElementById("t1").value);
+            const val2=parseInt(document.getElementById("t2").value);
+            const ch1=document.getElementById("cha1").value;
+            let res=0;
+            if(ch1==="+"){
+                res=val1+val2;
+            }
+            else if(ch1==="-"){
+                res=val1-val2;
+            }
+            else if(ch1==="*"){
+                res=val1*val2;
+            }
+            else if(ch1==="/"){
+                res=val1/val2;
+            }
+            document.getElementById("result").innerText=res;
+        }
+    </script>
+</head>
+<body>
+    <!-- <input type="text" placeholder="Enter the name" id="t1">
+     <input type="text" placeholder="Enter the name" id="t2"> -->
+     <div>
+        <table border="0">
+            <tr>
+                <td><input type="number" placeholder="Enter the value1" id="t1"></td>
+            </tr>
+            <tr>
+                <td><input type="number" placeholder="Enter the value2" id="t2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Enter the character between(+,-,*,/)" id="cha1"></td>
+            </tr>
+            <tr><td> <button onclick="demo()">calculate</button> <h1 id="result"></h1>  </td></tr>
+       
+        
+        </table>
+     </div>
+    
+</body>
+</html>
