@@ -44,7 +44,7 @@
     <button id="btn" onclick="press()">Click Me</button>
 </body>
 </html> -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
     <meta charset="UTF-8">
     <meta name ="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,17 +52,6 @@
     <head>
         <title>DOM Manipulation</title>
         <link rel="stylesheet" href="styles.css">
-    
-    <!-- <script>
-        function press(){
-            let body = document.getElementById("main");
-            let h1=document.createElement("h1");
-            h1.innerText="Hello World";
-            h1.style.color="blue";
-            h1.style.textAlign="center";
-            body.appendChild(h1);
-        }
-    </script> -->
     <style>
         body{
             background-color: rgb(1, 1, 1);
@@ -97,4 +86,177 @@
     <body id="main">
         <button id="btn" onclick="press()">Click Me</button>
     </body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="course">
+    <button id="bt">Add</button>
+    <ol id="list"></ol>
+    <script>
+        let tex=document.getElementById("course");
+        let btn=document.getElementById("bt");
+        let list_item=document.getElementById("list");
+        btn.addEventListener("click",()=>{
+            if(tex.value!==""){
+                let li=document.createElement("li");
+                li.textContent=tex.value;
+                list_item.appendChild(li);
+            }
+        })
+        
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+
+    <head>
+        <title>Items</title>
+        <style>
+            .container{
+                color: white;
+                text-align: center;
+                padding: 20px;
+                margin: 20px auto;
+                width: 50%;
+                border: 2px solid rgb(247, 243, 243);
+            }
+            h1{
+                color: white;
+            }
+            .error-message {
+                color: #ff4444;
+                font-weight: bold;
+                margin-top: 5px;
+                display: none;
+                font-size: 14px;
+            }
+            .error-message.show {
+                display: block;
+            }
+            body{
+                display:flex;
+                flex-direction: column;
+                background-color: rgb(15, 15, 15);
+                justify-items: center;
+                position: relative;
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            input[type="text"] {
+                padding: 8px;
+                width: 200px;
+                margin-right: 10px;
+            }
+            button {
+                padding: 8px 12px;
+                margin-right: 5px;
+            }
+            ol {
+                margin-top: 20px;
+                text-align: left;
+                padding-left: 20px;
+                display: inline-block;
+            }
+            li {
+                margin-bottom: 5px;
+            }
+            button:hover{
+                background-color: lightgray;
+                cursor: pointer;
+                font-weight: bold;
+            }
+            ol{
+                color: white;
+            }
+
+        </style>
+
+        <script>
+
+
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const button = document.getElementById("add-item-btn");
+                const removeButton = document.getElementById("remove-item-btn");
+                const itemInput = document.getElementById("item-input");
+                const itemList = document.getElementById("item-list");
+                const errorMsg = document.getElementById("error-message");
+                const clock = document.getElementById("Clock");
+
+                function updateClock() {
+                   clock.textContent = new Date().toLocaleTimeString();
+                }
+                setInterval(updateClock, 1000);
+                updateClock();
+
+
+                if (!button || !removeButton || !itemInput || !itemList || !errorMsg) return;
+
+                function addItem() {
+                    const value = itemInput.value.trim();
+                    if (!value) {
+                        // Show error message
+                        errorMsg.textContent = "Please enter an item before adding!";
+                        errorMsg.classList.add('show');
+                        itemInput.focus();
+                        return;
+                    }
+                    // Hide error message if input is valid
+                    errorMsg.classList.remove('show');
+                    const li = document.createElement("li");
+                    li.textContent = value;
+                    itemList.appendChild(li);
+                    itemInput.value = "";
+                    itemInput.focus();
+                }
+
+                button.addEventListener("click", addItem);
+
+                // allow pressing Enter to add
+                itemInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') addItem();
+                });
+
+                // hide error message when user starts typing
+                itemInput.addEventListener('input', function () {
+                    if (itemInput.value.trim()) {
+                        errorMsg.classList.remove('show');
+                    }
+                });
+
+                removeButton.addEventListener("click", function (){
+                    if (itemList.lastElementChild) {
+                        itemList.removeChild(itemList.lastElementChild);
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Super Market</h1>
+            <p id ="Clock"></p>
+            <input type="text" id="item-input" placeholder="Enter your item">
+            <div id="error-message" class="error-message"></div>
+            <br><br>
+            <button id="add-item-btn" type="button">Add Item</button>
+            <button id="remove-item-btn" type="button">Remove Item</button>
+            <br><br>
+            <ol id="item-list">
+            </ol>
+        </div>
+    </body>
 </html>
+
