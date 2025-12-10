@@ -16,7 +16,7 @@ export default function Navbar() {
     <nav className="navbar">
         <button onClick={setLocation}>Home</button>
         <button onClick={setLocation2}>Counter</button>
-        <button onClick={setLocation3}>Application Form</button>
+        {/* <button onClick={setLocation3}>Application Form</button> */}
     </nav>
   );
 }
