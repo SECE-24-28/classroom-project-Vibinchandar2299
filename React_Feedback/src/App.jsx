@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { format } from 'date-fns'
 import api from './api/Post.jsx'
 import Home from './Home.jsx'
 import Search from './Search.jsx'
 import AddPost from './AddPost.jsx'
+import { DataProvider } from './DataContext.jsx'
 
 function App() {
   
@@ -45,7 +45,7 @@ function App() {
   const handleSubmit=async(e)=>{
       e.preventDefault();
       const id=(posts.length)?(Number(posts[posts.length-1].id)+1):(1)
-      const datetime = format(new Date(), "MMMM dd, yyyy pp")
+      const datetime=new Date().toLocaleString()
 
       const newObj={id,title,datetime,body}
       try{
@@ -61,7 +61,7 @@ function App() {
   }
   return (
     <>
-      <Search search={search} setSearch={setSearch}/>
+      
       
       {/* <form onSubmit={handleSubmit}>
         <input 
@@ -80,7 +80,11 @@ function App() {
         <button type="submit">Add Post</button>
       </form>
        */}
-       <AddPost title={title} setTitle={setTitle} body={body} setBody={setBody} handleSubmit={handleSubmit}/>
+       <DataProvider>
+          <Search search={search} setSearch={setSearch}/><hr />
+          <AddPost title={title} setTitle={setTitle} body={body} setBody={setBody} handleSubmit={handleSubmit}/>
+       </DataProvider>
+       
       <Home searchResults={searchResults} />
     </>
   )
