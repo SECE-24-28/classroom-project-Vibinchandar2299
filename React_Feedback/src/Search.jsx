@@ -5,14 +5,15 @@ import {DataContext} from './DataContext'
 const Search = () => {
    const {search,setSearch}=useContext(DataContext)
     return (
-    <>
+      <div>
         <input 
-        type="text" 
-        placeholder="Search posts..." 
-        value={search} 
-        onChange={(e)=>setSearch(e.target.value)} 
-      />
-    </>
+          className="search-inline"
+          type="text" 
+          placeholder="Search posts..." 
+          value={search} 
+          onChange={(e)=>setSearch(e.target.value)} 
+        />
+      </div>
   )
 }
 

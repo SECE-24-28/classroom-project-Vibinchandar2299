@@ -5,7 +5,7 @@ import { useContext } from 'react'
 const AddPost = () => {
   const {title,setTitle,body,setBody,handleSubmit} = useContext(DataContext)
   return (
-    <div>
+    <div className="card" style={{maxWidth:700,margin:'0 auto'}}>
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 
@@ -19,8 +19,11 @@ const AddPost = () => {
           value={body}
           onChange={(e)=>setBody(e.target.value)}
           required
+          rows={8}
         ></textarea>
-        <button type='submit'>Save</button>
+        <div style={{display:'flex',justifyContent:'flex-end'}}>
+          <button type='submit'>Save</button>
+        </div>
       </form>
     </div>
   )

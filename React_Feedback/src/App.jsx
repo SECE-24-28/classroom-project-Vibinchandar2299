@@ -6,22 +6,33 @@ import AddPost from './AddPost.jsx'
 import { DataProvider } from './DataContext.jsx'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 
-function App() {  
+function App() {
   return (
     <DataProvider>
       <Router>
-        <Search />
-        <hr />
+        <div className="app">
+          <header className="app-header">
+            <div className="header-left">
+              <h1 className="app-title">Feedback Board</h1>
+              <p className="app-sub">Share thoughts — quick, simple feedback posts</p>
+            </div>
 
-        <ol>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/newpost">NewPost</Link></li>
-        </ol>
+            <div className="header-right">
+              <nav className="nav">
+                <Link to="/">Home</Link>
+                <Link to="/newpost" className="btn-link">New Post</Link>
+              </nav>
+              <Search />
+            </div>
+          </header>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/newpost" element={<AddPost />} />
-        </Routes>
+          <main className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/newpost" element={<AddPost />} />
+            </Routes>
+          </main>
+        </div>
       </Router>
     </DataProvider>
   )
