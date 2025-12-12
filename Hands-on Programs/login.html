@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - StreamFlix</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+
+        body{font-family:Arial, sans-serif;background:#f5f5f5;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+
+        .login-container{background:#fff;padding:20px;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.1);width:100%;max-width:400px;border:1px solid #ddd}
+
+        .logo{text-align:center;font-size:24px;color:#333;margin-bottom:16px}
+
+        h2{text-align:center;color:#333;margin-bottom:16px}
+
+        .input-group{margin-bottom:12px}
+
+        label{display:block;margin-bottom:6px;color:#555;font-size:14px}
+
+        input{width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;font-size:14px}
+
+        input:focus{outline:none;border-color:#888}
+
+        .forgot-password{text-align:right;margin-bottom:12px}
+
+        .forgot-password a,.signup-link a{color:#0066cc;text-decoration:none}
+
+        .btn{width:100%;padding:10px;background:#0066cc;color:#fff;border:none;border-radius:4px;font-size:16px;cursor:pointer}
+
+        .btn:hover{background:#005bb5}
+
+        .signup-link{text-align:center;margin-top:12px;color:#666;font-size:14px}
+
+        @media (max-width:480px){.login-container{padding:16px}.logo{font-size:20px}h2{font-size:18px}}
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">StreamFlix</div>
+        <h2>Welcome Back</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if(email && password) {
+                alert('Login successful! Welcome ' + email);
+            }
+        });
+    </script>
+</body>
+</html>
