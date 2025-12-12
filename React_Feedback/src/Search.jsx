@@ -1,12 +1,11 @@
 import React from 'react'
 import { useContext } from 'react'
-import DataContext from './DataContext'
+import {DataContext} from './DataContext'
 
-const Search = ({search,setSearch}) => {
-   const {num}=useContext(DataContext)
+const Search = () => {
+   const {search,setSearch}=useContext(DataContext)
     return (
     <>
-    <h1>{num}</h1>
         <input 
         type="text" 
         placeholder="Search posts..." 
